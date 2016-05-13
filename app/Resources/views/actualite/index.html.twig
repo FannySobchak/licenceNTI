@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Actualite list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Contenu</th>
+                <th>Dateactu</th>
+                <th>Idactu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                <td><a href="{{ path('actualite_show', { 'id': actualite.idActu }) }}">{{ actualite.contenu }}</a></td>
+                <td>{% if actualite.dateActu %}{{ actualite.dateActu|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ actualite.idActu }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('actualite_show', { 'id': actualite.idActu }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('actualite_edit', { 'id': actualite.idActu }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('actualite_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

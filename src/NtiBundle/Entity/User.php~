@@ -1,0 +1,97 @@
+<?php
+
+namespace NtiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="user")
+ * @ORM\Entity
+ */
+class User
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=25, nullable=true)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="prenom", type="string", length=25, nullable=false)
+     */
+    private $prenom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=80, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mdp", type="string", length=25, nullable=false)
+     */
+    private $mdp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tel", type="string", length=25, nullable=true)
+     */
+    private $tel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="droit", type="integer", nullable=false)
+     */
+    private $droit;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photo", type="string", length=25, nullable=true)
+     */
+    private $photo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_user", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idUser;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="NtiBundle\Entity\Cours", inversedBy="idUser")
+     * @ORM\JoinTable(name="enseigner",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="id_cours", referencedColumnName="id_cours")
+     *   }
+     * )
+     */
+    private $idCours;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->idCours = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+}
+

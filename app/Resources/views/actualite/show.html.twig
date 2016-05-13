@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Actualite</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ actualite.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Dateactu</th>
+                <td>{% if actualite.dateActu %}{{ actualite.dateActu|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Idactu</th>
+                <td>{{ actualite.idActu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('actualite_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('actualite_edit', { 'id': actualite.idActu }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

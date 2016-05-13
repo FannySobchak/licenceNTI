@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Page</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Titrepage</th>
+                <td>{{ page.titrePage }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ page.contenu }}</td>
+            </tr>
+            <tr>
+                <th>Idpage</th>
+                <td>{{ page.idPage }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('page_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('page_edit', { 'id': page.idPage }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

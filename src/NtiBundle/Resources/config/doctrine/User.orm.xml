@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="NtiBundle\Entity\User" table="user">
+    <id name="idUser" type="integer" column="id_user">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nom" type="string" column="nom" length="25" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="prenom" type="string" column="prenom" length="25" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="email" type="string" column="email" length="80" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="mdp" type="string" column="mdp" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="tel" type="string" column="tel" length="25" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="droit" type="integer" column="droit" nullable="false">
+      <options>
+        <option name="unsigned"/>
+      </options>
+    </field>
+    <field name="photo" type="string" column="photo" length="25" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-many field="idCours" target-entity="Cours" inversed-by="idUser" fetch="LAZY">
+      <join-table name="enseigner">
+        <join-columns>
+          <join-column name="id_user" referenced-column-name="id_user"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="id_cours" referenced-column-name="id_cours"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}SIL-NTI{% endblock %}</title>
+
+
+        {% block stylesheets %}
+
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">
+
+    	{% endblock %}
+
+    </head>
+    <body>
+    <div class="container">
+    	
+		<div id="header" class="jumbotron">
+			<img src="logoNTI.png" alt="logo_licence" />
+            
+            <h1>Bienvenue sur le site de la Licence Professionnelle SIL-NTI</h1>
+        </div>
+		
+		 <nav class="navbar navbar-inverse">
+        	<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand " href="#">Accueil</a>
+				</div>
+					
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Formation<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Description</a></li>
+								<li><a href="#">VAE</a></li>
+								<!-- ... -->
+							</ul>
+						</li>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Supports de cours<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">PHP</a></li>
+								<li><a href="#">JAVA</a></li>
+								<!-- ... -->
+							</ul>
+						</li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+        	</div>
+        </nav>
+
+        {% block body %}{% endblock %}
+
+
+        <hr>
+
+        <footer>
+        	<!-- recupere l'année courante -->
+            <p>  SIL - NTI copyright {{ "now"|date('Y') }} </p> 
+        </footer>
+
+
+        {% block javascripts %}
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </div>
+    </body>
+</html>

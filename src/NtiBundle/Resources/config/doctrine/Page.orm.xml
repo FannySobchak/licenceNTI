@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="NtiBundle\Entity\Page" table="page">
+    <indexes>
+      <index name="FK_page_id_user" columns="id_user"/>
+    </indexes>
+    <id name="idPage" type="integer" column="id_page">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="titrePage" type="string" column="titre_page" length="25" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="contenu" type="string" column="contenu" length="500" nullable="false">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <many-to-one field="idUser" target-entity="User" fetch="LAZY">
+      <join-columns>
+        <join-column name="id_user" referenced-column-name="id_user"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

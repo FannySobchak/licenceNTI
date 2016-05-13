@@ -1,0 +1,8 @@
+nti:
+    resource: "@NtiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

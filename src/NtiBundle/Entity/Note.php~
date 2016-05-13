@@ -1,0 +1,63 @@
+<?php
+
+namespace NtiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Note
+ *
+ * @ORM\Table(name="note", uniqueConstraints={@ORM\UniqueConstraint(name="id_epreuve", columns={"id_epreuve"}), @ORM\UniqueConstraint(name="id_session", columns={"id_session"}), @ORM\UniqueConstraint(name="id_user", columns={"id_user"})})
+ * @ORM\Entity
+ */
+class Note
+{
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="note", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $note;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_note", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idNote;
+
+    /**
+     * @var \NtiBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="NtiBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     * })
+     */
+    private $idUser;
+
+    /**
+     * @var \NtiBundle\Entity\Session
+     *
+     * @ORM\ManyToOne(targetEntity="NtiBundle\Entity\Session")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_session", referencedColumnName="id_session")
+     * })
+     */
+    private $idSession;
+
+    /**
+     * @var \NtiBundle\Entity\Epreuve
+     *
+     * @ORM\ManyToOne(targetEntity="NtiBundle\Entity\Epreuve")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_epreuve", referencedColumnName="id_epreuve")
+     * })
+     */
+    private $idEpreuve;
+
+
+}
+
