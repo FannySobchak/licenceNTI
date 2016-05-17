@@ -28,6 +28,16 @@ class User extends BaseUser
      */
     private $cours;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $prenom;
+
     public function __construct()
     {
         parent::__construct();
@@ -137,5 +147,53 @@ class User extends BaseUser
     public function getPage()
     {
         return $this->page;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return User
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return User
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
     }
 }

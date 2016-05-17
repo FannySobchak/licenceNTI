@@ -45,6 +45,12 @@
 							</ul>
 						</li>
 						<li><a href="#">Contact</a></li>
+						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+							<li><a href="#" >{{ app.user.prenom }} {{ app.user.nom }}</a></li>
+							<li><a href="{{ path('fos_user_security_logout') }}" >Déconnexion</a></li>
+						{% else %}
+							<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+						{% endif %}
 					</ul>
 				</div>
         	</div>
