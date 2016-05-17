@@ -12,6 +12,10 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('NtiBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getConnection()->prepare('SELECT a.*,u.nom,u.prenom FROM actualite a INNER JOIN user u ON u.id = a.user_id ORDER BY a.date DESC LIMIT 1');
+        $query->execute();
+
+        return $this->render('NtiBundle:Default:index.html.twig', array('actu' => $query->fetch()));
     }
 }
