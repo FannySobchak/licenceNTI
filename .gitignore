@@ -1,3 +1,4 @@
 *.swp
 .idea/*
 var/*
+app/*.cache
