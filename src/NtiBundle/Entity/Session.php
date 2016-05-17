@@ -35,12 +35,6 @@ class Session
      */
     private $date;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Etudiant")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $etudiant;
-
 
     /**
      * Get id
@@ -99,5 +93,28 @@ class Session
     {
         return $this->date;
     }
-}
 
+    /**
+     * Set etudiant
+     *
+     * @param \NtiBundle\Entity\Etudiant $etudiant
+     *
+     * @return Session
+     */
+    public function setEtudiant(\NtiBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiant = $etudiant;
+
+        return $this;
+    }
+
+    /**
+     * Get etudiant
+     *
+     * @return \NtiBundle\Entity\Etudiant
+     */
+    public function getEtudiant()
+    {
+        return $this->etudiant;
+    }
+}

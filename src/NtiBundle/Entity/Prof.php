@@ -13,4 +13,3 @@ class Prof extends User
 {
 
 }
-

@@ -36,10 +36,10 @@ class Epreuve
     private $intitule;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Note")
+     * @ORM\ManyToOne(targetEntity="Cours")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $note;
+    private $cours;
 
     /**
      * Get id
@@ -98,5 +98,28 @@ class Epreuve
     {
         return $this->intitule;
     }
-}
 
+    /**
+     * Set note
+     *
+     * @param \NtiBundle\Entity\Note $note
+     *
+     * @return Epreuve
+     */
+    public function setNote(\NtiBundle\Entity\Note $note)
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    /**
+     * Get note
+     *
+     * @return \NtiBundle\Entity\Note
+     */
+    public function getNote()
+    {
+        return $this->note;
+    }
+}

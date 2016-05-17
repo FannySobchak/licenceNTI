@@ -35,6 +35,11 @@ class Page
      */
     private $contenu;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * Get id
@@ -94,4 +99,3 @@ class Page
         return $this->contenu;
     }
 }
-

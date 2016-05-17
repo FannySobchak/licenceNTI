@@ -12,9 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Etudiant extends User
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Note")
+     * @ORM\ManyToOne(targetEntity="Session")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $note;
+    private $session;
 }
-

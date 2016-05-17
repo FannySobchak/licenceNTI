@@ -28,6 +28,17 @@ class Fichier
      */
     private $chemin;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cours")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $cours;
 
     /**
      * Get id
@@ -63,4 +74,3 @@ class Fichier
         return $this->chemin;
     }
 }
-

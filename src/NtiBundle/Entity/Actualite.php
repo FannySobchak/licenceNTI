@@ -42,6 +42,11 @@ class Actualite
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * Get id
@@ -125,4 +130,3 @@ class Actualite
         return $this->date;
     }
 }
-

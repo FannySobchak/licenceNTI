@@ -28,17 +28,7 @@ class Cours
      */
     private $libelle;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Epreuve")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $epreuve;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Fichier")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $fichier;
 
     /**
      * Get id
@@ -73,5 +63,52 @@ class Cours
     {
         return $this->libelle;
     }
-}
 
+    /**
+     * Set epreuve
+     *
+     * @param \NtiBundle\Entity\Epreuve $epreuve
+     *
+     * @return Cours
+     */
+    public function setEpreuve(\NtiBundle\Entity\Epreuve $epreuve)
+    {
+        $this->epreuve = $epreuve;
+
+        return $this;
+    }
+
+    /**
+     * Get epreuve
+     *
+     * @return \NtiBundle\Entity\Epreuve
+     */
+    public function getEpreuve()
+    {
+        return $this->epreuve;
+    }
+
+    /**
+     * Set fichier
+     *
+     * @param \NtiBundle\Entity\Fichier $fichier
+     *
+     * @return Cours
+     */
+    public function setFichier(\NtiBundle\Entity\Fichier $fichier)
+    {
+        $this->fichier = $fichier;
+
+        return $this;
+    }
+
+    /**
+     * Get fichier
+     *
+     * @return \NtiBundle\Entity\Fichier
+     */
+    public function getFichier()
+    {
+        return $this->fichier;
+    }
+}

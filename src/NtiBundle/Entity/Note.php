@@ -28,6 +28,24 @@ class Note
      */
     private $valeur;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Epreuve")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $epreuve;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Etudiant")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $etudiant;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Session")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $session;
+
 
     /**
      * Get id
@@ -63,4 +81,3 @@ class Note
         return $this->valeur;
     }
 }
-
