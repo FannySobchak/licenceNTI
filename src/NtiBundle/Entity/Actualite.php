@@ -7,45 +7,75 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Actualite
  *
- * @ORM\Table(name="actualite", indexes={@ORM\Index(name="FK_actualite_id_user", columns={"id_user"})})
- * @ORM\Entity
+ * @ORM\Table(name="actualite")
+ * @ORM\Entity(repositoryClass="NtiBundle\Repository\ActualiteRepository")
  */
 class Actualite
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="string", length=500, nullable=true)
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_actu", type="date", nullable=false)
+     * @ORM\Column(name="date", type="datetime")
      */
-    private $dateActu;
+    private $date;
+
 
     /**
-     * @var integer
+     * Get id
      *
-     * @ORM\Column(name="id_actu", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @return int
      */
-    private $idActu;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var \NtiBundle\Entity\User
+     * Set titre
      *
-     * @ORM\ManyToOne(targetEntity="NtiBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
-     * })
+     * @param string $titre
+     *
+     * @return Actualite
      */
-    private $idUser;
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
 
+        return $this;
+    }
 
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
 
     /**
      * Set contenu
@@ -72,60 +102,27 @@ class Actualite
     }
 
     /**
-     * Set dateActu
+     * Set date
      *
-     * @param \DateTime $dateActu
+     * @param \DateTime $date
      *
      * @return Actualite
      */
-    public function setDateActu($dateActu)
+    public function setDate($date)
     {
-        $this->dateActu = $dateActu;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Get dateActu
+     * Get date
      *
      * @return \DateTime
      */
-    public function getDateActu()
+    public function getDate()
     {
-        return $this->dateActu;
-    }
-
-    /**
-     * Get idActu
-     *
-     * @return integer
-     */
-    public function getIdActu()
-    {
-        return $this->idActu;
-    }
-
-    /**
-     * Set idUser
-     *
-     * @param \NtiBundle\Entity\User $idUser
-     *
-     * @return Actualite
-     */
-    public function setIdUser(\NtiBundle\Entity\User $idUser = null)
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Get idUser
-     *
-     * @return \NtiBundle\Entity\User
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
+        return $this->date;
     }
 }
+

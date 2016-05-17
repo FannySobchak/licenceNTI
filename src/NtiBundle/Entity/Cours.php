@@ -8,41 +8,47 @@ use Doctrine\ORM\Mapping as ORM;
  * Cours
  *
  * @ORM\Table(name="cours")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="NtiBundle\Repository\CoursRepository")
  */
 class Cours
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=25, nullable=false)
+     * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_cours", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\ManyToOne(targetEntity="Epreuve")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idCours;
+    private $epreuve;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="NtiBundle\Entity\User", mappedBy="idCours")
+     * @ORM\ManyToOne(targetEntity="Fichier")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idUser;
+    private $fichier;
 
     /**
-     * Constructor
+     * Get id
+     *
+     * @return int
      */
-    public function __construct()
+    public function getId()
     {
-        $this->idUser = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
-
 
     /**
      * Set libelle
@@ -67,48 +73,5 @@ class Cours
     {
         return $this->libelle;
     }
-
-    /**
-     * Get idCours
-     *
-     * @return integer
-     */
-    public function getIdCours()
-    {
-        return $this->idCours;
-    }
-
-    /**
-     * Add idUser
-     *
-     * @param \NtiBundle\Entity\User $idUser
-     *
-     * @return Cours
-     */
-    public function addIdUser(\NtiBundle\Entity\User $idUser)
-    {
-        $this->idUser[] = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Remove idUser
-     *
-     * @param \NtiBundle\Entity\User $idUser
-     */
-    public function removeIdUser(\NtiBundle\Entity\User $idUser)
-    {
-        $this->idUser->removeElement($idUser);
-    }
-
-    /**
-     * Get idUser
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
 }
+

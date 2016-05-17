@@ -8,34 +8,49 @@ use Doctrine\ORM\Mapping as ORM;
  * Session
  *
  * @ORM\Table(name="session")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="NtiBundle\Repository\SessionRepository")
  */
 class Session
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="libelle", type="string", length=25, nullable=false)
+     * @ORM\Column(name="libelle", type="string", length=255)
      */
     private $libelle;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_inscription", type="date", nullable=false)
+     * @ORM\Column(name="date", type="date")
      */
-    private $dateInscription;
+    private $date;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_session", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\ManyToOne(targetEntity="Etudiant")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idSession;
+    private $etudiant;
 
 
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set libelle
@@ -62,36 +77,27 @@ class Session
     }
 
     /**
-     * Set dateInscription
+     * Set date
      *
-     * @param \DateTime $dateInscription
+     * @param \DateTime $date
      *
      * @return Session
      */
-    public function setDateInscription($dateInscription)
+    public function setDate($date)
     {
-        $this->dateInscription = $dateInscription;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Get dateInscription
+     * Get date
      *
      * @return \DateTime
      */
-    public function getDateInscription()
+    public function getDate()
     {
-        return $this->dateInscription;
-    }
-
-    /**
-     * Get idSession
-     *
-     * @return integer
-     */
-    public function getIdSession()
-    {
-        return $this->idSession;
+        return $this->date;
     }
 }
+

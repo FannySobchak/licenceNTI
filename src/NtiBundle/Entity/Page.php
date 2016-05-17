@@ -7,68 +7,67 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Page
  *
- * @ORM\Table(name="page", indexes={@ORM\Index(name="FK_page_id_user", columns={"id_user"})})
- * @ORM\Entity
+ * @ORM\Table(name="page")
+ * @ORM\Entity(repositoryClass="NtiBundle\Repository\PageRepository")
  */
 class Page
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="titre_page", type="string", length=25, nullable=false)
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $titrePage;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="string", length=500, nullable=false)
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
      */
     private $contenu;
 
+
     /**
-     * @var integer
+     * Get id
      *
-     * @ORM\Column(name="id_page", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @return int
      */
-    private $idPage;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @var \NtiBundle\Entity\User
+     * Set titre
      *
-     * @ORM\ManyToOne(targetEntity="NtiBundle\Entity\User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
-     * })
-     */
-    private $idUser;
-
-
-
-    /**
-     * Set titrePage
-     *
-     * @param string $titrePage
+     * @param string $titre
      *
      * @return Page
      */
-    public function setTitrePage($titrePage)
+    public function setTitre($titre)
     {
-        $this->titrePage = $titrePage;
+        $this->titre = $titre;
 
         return $this;
     }
 
     /**
-     * Get titrePage
+     * Get titre
      *
      * @return string
      */
-    public function getTitrePage()
+    public function getTitre()
     {
-        return $this->titrePage;
+        return $this->titre;
     }
 
     /**
@@ -94,38 +93,5 @@ class Page
     {
         return $this->contenu;
     }
-
-    /**
-     * Get idPage
-     *
-     * @return integer
-     */
-    public function getIdPage()
-    {
-        return $this->idPage;
-    }
-
-    /**
-     * Set idUser
-     *
-     * @param \NtiBundle\Entity\User $idUser
-     *
-     * @return Page
-     */
-    public function setIdUser(\NtiBundle\Entity\User $idUser = null)
-    {
-        $this->idUser = $idUser;
-
-        return $this;
-    }
-
-    /**
-     * Get idUser
-     *
-     * @return \NtiBundle\Entity\User
-     */
-    public function getIdUser()
-    {
-        return $this->idUser;
-    }
 }
+

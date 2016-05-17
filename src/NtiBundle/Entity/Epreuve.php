@@ -7,68 +7,72 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Epreuve
  *
- * @ORM\Table(name="epreuve", indexes={@ORM\Index(name="FK_epreuve_id_cours", columns={"id_cours"})})
- * @ORM\Entity
+ * @ORM\Table(name="epreuve")
+ * @ORM\Entity(repositoryClass="NtiBundle\Repository\EpreuveRepository")
  */
 class Epreuve
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEpreuve", type="date", nullable=false)
+     * @ORM\Column(name="date", type="datetime")
      */
-    private $dateepreuve;
+    private $date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="intitule", type="string", length=25, nullable=true)
+     * @ORM\Column(name="intitule", type="string", length=255)
      */
     private $intitule;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_epreuve", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\ManyToOne(targetEntity="Note")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $idEpreuve;
+    private $note;
 
     /**
-     * @var \NtiBundle\Entity\Cours
+     * Get id
      *
-     * @ORM\ManyToOne(targetEntity="NtiBundle\Entity\Cours")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_cours", referencedColumnName="id_cours")
-     * })
+     * @return int
      */
-    private $idCours;
-
-
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * Set dateepreuve
+     * Set date
      *
-     * @param \DateTime $dateepreuve
+     * @param \DateTime $date
      *
      * @return Epreuve
      */
-    public function setDateepreuve($dateepreuve)
+    public function setDate($date)
     {
-        $this->dateepreuve = $dateepreuve;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Get dateepreuve
+     * Get date
      *
      * @return \DateTime
      */
-    public function getDateepreuve()
+    public function getDate()
     {
-        return $this->dateepreuve;
+        return $this->date;
     }
 
     /**
@@ -94,38 +98,5 @@ class Epreuve
     {
         return $this->intitule;
     }
-
-    /**
-     * Get idEpreuve
-     *
-     * @return integer
-     */
-    public function getIdEpreuve()
-    {
-        return $this->idEpreuve;
-    }
-
-    /**
-     * Set idCours
-     *
-     * @param \NtiBundle\Entity\Cours $idCours
-     *
-     * @return Epreuve
-     */
-    public function setIdCours(\NtiBundle\Entity\Cours $idCours = null)
-    {
-        $this->idCours = $idCours;
-
-        return $this;
-    }
-
-    /**
-     * Get idCours
-     *
-     * @return \NtiBundle\Entity\Cours
-     */
-    public function getIdCours()
-    {
-        return $this->idCours;
-    }
 }
+
