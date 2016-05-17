@@ -80,4 +80,76 @@ class Note
     {
         return $this->valeur;
     }
+
+    /**
+     * Set epreuve
+     *
+     * @param \NtiBundle\Entity\Epreuve $epreuve
+     *
+     * @return Note
+     */
+    public function setEpreuve(\NtiBundle\Entity\Epreuve $epreuve)
+    {
+        $this->epreuve = $epreuve;
+
+        return $this;
+    }
+
+    /**
+     * Get epreuve
+     *
+     * @return \NtiBundle\Entity\Epreuve
+     */
+    public function getEpreuve()
+    {
+        return $this->epreuve;
+    }
+
+    /**
+     * Set etudiant
+     *
+     * @param \NtiBundle\Entity\Etudiant $etudiant
+     *
+     * @return Note
+     */
+    public function setEtudiant(\NtiBundle\Entity\Etudiant $etudiant)
+    {
+        $this->etudiant = $etudiant;
+
+        return $this;
+    }
+
+    /**
+     * Get etudiant
+     *
+     * @return \NtiBundle\Entity\Etudiant
+     */
+    public function getEtudiant()
+    {
+        return $this->etudiant;
+    }
+
+    /**
+     * Set session
+     *
+     * @param \NtiBundle\Entity\Session $session
+     *
+     * @return Note
+     */
+    public function setSession(\NtiBundle\Entity\Session $session)
+    {
+        $this->session = $session;
+
+        return $this;
+    }
+
+    /**
+     * Get session
+     *
+     * @return \NtiBundle\Entity\Session
+     */
+    public function getSession()
+    {
+        return $this->session;
+    }
 }

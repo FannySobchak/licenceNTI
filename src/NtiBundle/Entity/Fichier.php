@@ -73,4 +73,52 @@ class Fichier
     {
         return $this->chemin;
     }
+
+    /**
+     * Set user
+     *
+     * @param \NtiBundle\Entity\User $user
+     *
+     * @return Fichier
+     */
+    public function setUser(\NtiBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \NtiBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set cours
+     *
+     * @param \NtiBundle\Entity\Cours $cours
+     *
+     * @return Fichier
+     */
+    public function setCours(\NtiBundle\Entity\Cours $cours)
+    {
+        $this->cours = $cours;
+
+        return $this;
+    }
+
+    /**
+     * Get cours
+     *
+     * @return \NtiBundle\Entity\Cours
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
 }

@@ -3,6 +3,7 @@
 namespace NtiBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,9 +16,10 @@ class ActualiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('titre')
             ->add('contenu')
-            ->add('dateActu', 'date')
-            ->add('idUser')
+            ->add('date', DateType::class)
+            ->add('user')
         ;
     }
     

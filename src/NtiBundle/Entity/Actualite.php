@@ -129,4 +129,28 @@ class Actualite
     {
         return $this->date;
     }
+
+    /**
+     * Set user
+     *
+     * @param \NtiBundle\Entity\User $user
+     *
+     * @return Actualite
+     */
+    public function setUser(\NtiBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \NtiBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

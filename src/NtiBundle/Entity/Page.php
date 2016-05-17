@@ -98,4 +98,28 @@ class Page
     {
         return $this->contenu;
     }
+
+    /**
+     * Set user
+     *
+     * @param \NtiBundle\Entity\User $user
+     *
+     * @return Page
+     */
+    public function setUser(\NtiBundle\Entity\User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \NtiBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

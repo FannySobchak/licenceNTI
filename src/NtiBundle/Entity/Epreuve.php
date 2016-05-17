@@ -122,4 +122,28 @@ class Epreuve
     {
         return $this->note;
     }
+
+    /**
+     * Set cours
+     *
+     * @param \NtiBundle\Entity\Cours $cours
+     *
+     * @return Epreuve
+     */
+    public function setCours(\NtiBundle\Entity\Cours $cours)
+    {
+        $this->cours = $cours;
+
+        return $this;
+    }
+
+    /**
+     * Get cours
+     *
+     * @return \NtiBundle\Entity\Cours
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
 }

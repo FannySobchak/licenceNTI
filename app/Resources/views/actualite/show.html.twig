@@ -6,16 +6,20 @@
     <table>
         <tbody>
             <tr>
+                <th>Id</th>
+                <td>{{ actualite.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ actualite.titre }}</td>
+            </tr>
+            <tr>
                 <th>Contenu</th>
                 <td>{{ actualite.contenu }}</td>
             </tr>
             <tr>
-                <th>Dateactu</th>
-                <td>{% if actualite.dateActu %}{{ actualite.dateActu|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Idactu</th>
-                <td>{{ actualite.idActu }}</td>
+                <th>Date</th>
+                <td>{% if actualite.date %}{{ actualite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
@@ -25,7 +29,7 @@
             <a href="{{ path('actualite_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('actualite_edit', { 'id': actualite.idActu }) }}">Edit</a>
+            <a href="{{ path('actualite_edit', { 'id': actualite.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

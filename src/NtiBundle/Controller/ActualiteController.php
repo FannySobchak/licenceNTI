@@ -12,7 +12,7 @@ use NtiBundle\Form\ActualiteType;
 /**
  * Actualite controller.
  *
- * @Route("/actualite")
+ * @Route("/admin/actualite")
  */
 class ActualiteController extends Controller
 {

@@ -6,25 +6,27 @@
     <table>
         <thead>
             <tr>
+                <th>Id</th>
+                <th>Titre</th>
                 <th>Contenu</th>
-                <th>Dateactu</th>
-                <th>Idactu</th>
+                <th>Date</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for actualite in actualites %}
             <tr>
-                <td><a href="{{ path('actualite_show', { 'id': actualite.idActu }) }}">{{ actualite.contenu }}</a></td>
-                <td>{% if actualite.dateActu %}{{ actualite.dateActu|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ actualite.idActu }}</td>
+                <td><a href="{{ path('actualite_show', { 'id': actualite.id }) }}">{{ actualite.id }}</a></td>
+                <td>{{ actualite.titre }}</td>
+                <td>{{ actualite.contenu }}</td>
+                <td>{% if actualite.date %}{{ actualite.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('actualite_show', { 'id': actualite.idActu }) }}">show</a>
+                            <a href="{{ path('actualite_show', { 'id': actualite.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('actualite_edit', { 'id': actualite.idActu }) }}">edit</a>
+                            <a href="{{ path('actualite_edit', { 'id': actualite.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
