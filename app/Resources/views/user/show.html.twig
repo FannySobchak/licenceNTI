@@ -6,6 +6,10 @@
     <table>
         <tbody>
             <tr>
+                <th>Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
                 <th>Nom</th>
                 <td>{{ user.nom }}</td>
             </tr>
@@ -13,39 +17,15 @@
                 <th>Prenom</th>
                 <td>{{ user.prenom }}</td>
             </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Mdp</th>
-                <td>{{ user.mdp }}</td>
-            </tr>
-            <tr>
-                <th>Tel</th>
-                <td>{{ user.tel }}</td>
-            </tr>
-            <tr>
-                <th>Droit</th>
-                <td>{{ user.droit }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ user.photo }}</td>
-            </tr>
-            <tr>
-                <th>Iduser</th>
-                <td>{{ user.idUser }}</td>
-            </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
+            <a href="{{ path('admin_user_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('user_edit', { 'id': user.idUser }) }}">Edit</a>
+            <a href="{{ path('admin_user_edit', { 'id': user.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

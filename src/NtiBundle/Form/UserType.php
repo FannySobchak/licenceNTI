@@ -17,12 +17,7 @@ class UserType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('email')
-            ->add('mdp')
-            ->add('tel')
-            ->add('droit')
-            ->add('photo')
-            ->add('idCours')
+            ->add('cours')
         ;
     }
     
