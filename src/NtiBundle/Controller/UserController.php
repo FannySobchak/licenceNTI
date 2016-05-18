@@ -41,11 +41,25 @@ class UserController extends Controller
      */
     public function newAction(Request $request)
     {
+        // FIXME
+        return $this->redirectToRoute('fos_user_registration_register');
+
         $user = new User();
         $form = $this->createForm('NtiBundle\Form\UserType', $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $username = strtolower($user->getPrenom()[0]).strtolower($user->getNom());
+            $username = str_replace(' ', '', $username);
+            $user->setUsername($username);
+
+            $email = strtolower($user->getPrenom().'.'.$user->getNom().'@etu.univ-amu.fr');
+            $email = str_replace(' ', '', $email);
+            $user->setEmail($email);
+
+            //TODO: Envoyer un mail
+            $user->setEnabled(true);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -84,7 +98,7 @@ class UserController extends Controller
     public function editAction(Request $request, User $user)
     {
         $deleteForm = $this->createDeleteForm($user);
-        $editForm = $this->createForm('NtiBundle\Form\UserType', $user);
+        $editForm = $this->createForm('NtiBundle\Form\UserEditType', $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
