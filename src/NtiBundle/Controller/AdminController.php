@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 /**
  * Admin controller.
  *
- * @Route("/admin/")
+ * @Route("/admin")
  */
 class AdminController extends Controller
 {
