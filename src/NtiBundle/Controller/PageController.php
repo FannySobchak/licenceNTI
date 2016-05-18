@@ -12,14 +12,14 @@ use NtiBundle\Form\PageType;
 /**
  * Page controller.
  *
- * @Route("/page")
+ * @Route("/admin/page")
  */
 class PageController extends Controller
 {
     /**
      * Lists all Page entities.
      *
-     * @Route("/", name="page_index")
+     * @Route("/", name="admin_page_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -36,7 +36,7 @@ class PageController extends Controller
     /**
      * Creates a new Page entity.
      *
-     * @Route("/new", name="page_new")
+     * @Route("/new", name="admin_page_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -50,7 +50,7 @@ class PageController extends Controller
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('page_show', array('id' => $page->getId()));
+            return $this->redirectToRoute('admin_page_show', array('id' => $page->getId()));
         }
 
         return $this->render('page/new.html.twig', array(
@@ -62,7 +62,7 @@ class PageController extends Controller
     /**
      * Finds and displays a Page entity.
      *
-     * @Route("/{id}", name="page_show")
+     * @Route("/{id}", name="admin_page_show")
      * @Method("GET")
      */
     public function showAction(Page $page)
@@ -78,7 +78,7 @@ class PageController extends Controller
     /**
      * Displays a form to edit an existing Page entity.
      *
-     * @Route("/{id}/edit", name="page_edit")
+     * @Route("/{id}/edit", name="admin_page_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Page $page)
@@ -92,7 +92,7 @@ class PageController extends Controller
             $em->persist($page);
             $em->flush();
 
-            return $this->redirectToRoute('page_edit', array('id' => $page->getId()));
+            return $this->redirectToRoute('admin_page_edit', array('id' => $page->getId()));
         }
 
         return $this->render('page/edit.html.twig', array(
@@ -105,7 +105,7 @@ class PageController extends Controller
     /**
      * Deletes a Page entity.
      *
-     * @Route("/{id}", name="page_delete")
+     * @Route("/{id}", name="admin_page_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Page $page)
@@ -119,7 +119,7 @@ class PageController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('page_index');
+        return $this->redirectToRoute('admin_page_index');
     }
 
     /**
@@ -132,7 +132,7 @@ class PageController extends Controller
     private function createDeleteForm(Page $page)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('page_delete', array('id' => $page->getId())))
+            ->setAction($this->generateUrl('admin_page_delete', array('id' => $page->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

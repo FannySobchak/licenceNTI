@@ -6,26 +6,26 @@
     <table>
         <tbody>
             <tr>
-                <th>Titrepage</th>
-                <td>{{ page.titrePage }}</td>
+                <th>Id</th>
+                <td>{{ page.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ page.titre }}</td>
             </tr>
             <tr>
                 <th>Contenu</th>
                 <td>{{ page.contenu }}</td>
-            </tr>
-            <tr>
-                <th>Idpage</th>
-                <td>{{ page.idPage }}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('page_index') }}">Back to the list</a>
+            <a href="{{ path('admin_page_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('page_edit', { 'id': page.idPage }) }}">Edit</a>
+            <a href="{{ path('admin_page_edit', { 'id': page.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
