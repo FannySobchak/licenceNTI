@@ -25,7 +25,7 @@
 		 <nav class="navbar navbar-inverse">
         	<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand " href="#">Accueil</a>
+					<a class="navbar-brand " href="{{ path('index') }}">Accueil</a>
 				</div>
 					
 				<div class="collapse navbar-collapse" id="myNavbar">
@@ -47,6 +47,9 @@
 						<li><a href="#">Contact</a></li>
 						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							<li><a href="#" >{{ app.user.prenom }} {{ app.user.nom }}</a></li>
+							{% if is_granted("ROLE_ADMIN") %}
+								<li><a href="{{ path('admin_index') }}" >Administration</a></li>
+							{% endif %}
 							<li><a href="{{ path('fos_user_security_logout') }}" >Déconnexion</a></li>
 						{% else %}
 							<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
