@@ -11,5 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Prof extends User
 {
-
+    /**
+     * @ORM\ManyToMany(targetEntity="Cours", cascade={"persist"})
+     */
+    private $cours;
 }

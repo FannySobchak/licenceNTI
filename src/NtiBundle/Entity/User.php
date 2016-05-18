@@ -24,11 +24,6 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Cours", cascade={"persist"})
-     */
-    private $cours;
-
-    /**
      * @ORM\Column(type="string", length=100)
      */
     private $nom;
