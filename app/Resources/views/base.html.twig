@@ -30,21 +30,10 @@
 					
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Formation<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Description</a></li>
-								<li><a href="#">VAE</a></li>
-								<!-- ... -->
-							</ul>
-						</li>
-						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Supports de cours<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">PHP</a></li>
-								<li><a href="#">JAVA</a></li>
-								<!-- ... -->
-							</ul>
-						</li>
-						<li><a href="#">Contact</a></li>
+						{{ render(controller('NtiBundle:VoirPage:menu')) }}
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right" >
 						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							<li><a href="#" >{{ app.user.prenom }} {{ app.user.nom }}</a></li>
 							{% if is_granted("ROLE_ADMIN") %}

@@ -1,0 +1,9 @@
+{% for nomcat, categorie in categories %}
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ nomcat }}<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            {% for page in categorie %}
+                <li><a href="{{ path('voir_page', {'id': page.id}) }}" >{{ page.titre }}</a></li>
+                {% endfor %}
+        </ul>
+    </li>
+{% endfor %}

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PageType extends AbstractType
+class CategorieType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,7 @@ class PageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('contenu')
-            ->add('user')
-            ->add('categorie')
+            ->add('nom')
         ;
     }
     
@@ -28,7 +25,7 @@ class PageType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NtiBundle\Entity\Page'
+            'data_class' => 'NtiBundle\Entity\Categorie'
         ));
     }
 }

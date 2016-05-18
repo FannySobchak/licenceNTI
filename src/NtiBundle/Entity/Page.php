@@ -42,6 +42,12 @@ class Page
     private $user;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Categorie")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
+    /**
      * Get id
      *
      * @return int
@@ -121,5 +127,29 @@ class Page
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \NtiBundle\Entity\Categorie $categorie
+     *
+     * @return Page
+     */
+    public function setCategorie(\NtiBundle\Entity\Categorie $categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \NtiBundle\Entity\Categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
     }
 }

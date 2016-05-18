@@ -26,4 +26,22 @@ class VoirPageController extends Controller
             'page' => $page
         ));
     }
+
+    public function menuAction() {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->getConnection()->prepare('SELECT c.id,c.nom,p.id,p.titre FROM page p
+        INNER JOIN categorie c ON c.id = p.categorie_id');
+        $query->execute();
+
+        $categories = array();
+        foreach ($query->fetchAll() as $row) {
+            if(! array_key_exists($row["nom"], $categories)) {
+                $categories[$row["nom"]] = array();
+            }
+
+            array_push($categories[$row["nom"]], $row);
+        }
+
+        return $this->render('NtiBundle:Default:menu.html.twig', array('categories' => $categories));
+    }
 }
