@@ -26,7 +26,7 @@ class ActualiteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $actualites = $em->getRepository('NtiBundle:Actualite')->findAll();
+        $actualites = $em->getRepository('NtiBundle:Actualite')->findBy(array(), array('date' => 'DESC'));
 
         return $this->render('actualite/index.html.twig', array(
             'actualites' => $actualites,
@@ -47,6 +47,8 @@ class ActualiteController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $actualite->setDate(new \DateTime());
+            $actualite->setUser($this->getUser());
             $em->persist($actualite);
             $em->flush();
 

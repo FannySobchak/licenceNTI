@@ -4,7 +4,7 @@
     <div id="actualite" >
         <h2>Dernière nouvelle</h2>
         <h3>{{ actu.titre }}</h3>
-        <div>le {{ actu.date|date('d/m/Y à H:i') }} par {{ actu.user.prenom }} {{ actu.user.nom }}</div>
+        <div>le {{ actu.date|date('d/m/Y à H:i') }} par {{ actu.prenom }} {{ actu.nom }}</div>
         {{ actu.contenu }}
     </div>
 {% endblock %}

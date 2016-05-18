@@ -17,9 +17,7 @@ class ActualiteType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
-            ->add('date', DateType::class)
-            ->add('user')
+            ->add('contenu');
         ;
     }
     
