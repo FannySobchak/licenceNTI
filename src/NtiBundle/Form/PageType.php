@@ -16,7 +16,7 @@ class PageType extends AbstractType
     {
         $builder
             ->add('titre')
-            ->add('contenu')
+            ->add('contenu', null, array('attr' => array('class' => 'ckeditor')))
             ->add('user')
             ->add('categorie')
         ;
