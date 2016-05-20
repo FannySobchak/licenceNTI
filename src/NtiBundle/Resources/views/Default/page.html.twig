@@ -7,6 +7,6 @@
 {% block body %}
     <h1>{{ page.titre }}</h1>
     <div>
-        {{ page.contenu }}
+        {{ page.contenu|raw }}
     </div>
 {% endblock %}
