@@ -6,9 +6,13 @@
 
 
         {% block stylesheets %}
-			<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">
-		{% endblock %}
+
+
+		<link rel="stylesheet" href="{{ asset('bootstrap-3.3.6.min.css') }}">
+		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">-->
+
+    	{% endblock %}
+
     </head>
     <body>
     <div class="container">
@@ -57,9 +61,9 @@
 
 
         {% block javascripts %}
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-			<script src="//cdn.ckeditor.com/4.5.9/full/ckeditor.js"></script>
+			<script src="{{ asset('jquery-1.12.2.min.js') }}"></script>
+			<script src="{{ asset('bootstrap-3.3.6.min.js') }}"></script>
+			<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 		{% endblock %}
     </div>
     </body>
