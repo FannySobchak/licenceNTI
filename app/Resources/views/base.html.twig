@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}SIL-NTI{% endblock %}</title>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-        {% block stylesheets %}
+	<title>{% block title %}SIL-NTI{% endblock %}</title>
+    
+    {% block stylesheets %}
 
 
 		<link rel="stylesheet" href="{{ asset('bootstrap-3.3.6.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('modern-business.css') }}">
+    	<link href="{{ asset('font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">-->
 
-    	{% endblock %}
+    {% endblock %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-    </head>
-    <body>
-    <div class="container">
-    	
-		<div id="header" class="jumbotron">
-			<img src="{{ asset('logoNTI.png') }}" alt="logo_licence" />
-            
-            <h1>Licence Professionnelle SIL-NTI</h1>
-        </div>
+</head>
+
+<body class="container">
+<header>
+	<div class="container jumbotron">
+		<img src="{{ asset('logoNTI.png') }}" alt="logo_licence" class="col-md-3"/>     
+		<h2 class="col-md-6">Licence Professionnelle SIL-NTI</h2>
 		
-		<nav class="navbar navbar-inverse">
-        	<div class="container-fluid">
-				<div class="navbar-header">
+		<img src="{{ asset('logoAMU.png') }}" alt="logo_licence" class="col-md-3"/>         
+    </div>
+    <!-- Menu de navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          
+            <div class="navbar-header">
 					<a class="navbar-brand " href="{{ path('index') }}">Accueil</a>
-				</div>
-					
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
+			</div>
+          
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
 						{{ render(controller('NtiBundle:VoirPage:menu')) }}
-					</ul>
-
-					<ul class="nav navbar-nav navbar-right" >
+				</ul>
+				
+				<ul class="nav navbar-nav navbar-right" >
 						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							<li><a href="#" >{{ app.user.prenom }} {{ app.user.nom }}</a></li>
 							{% if is_granted("ROLE_ADMIN") %}
@@ -44,27 +59,39 @@
 						{% else %}
 							<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
 						{% endif %}
-					</ul>
-				</div>
-        	</div>
-        </nav>
+				</ul>
+                    
+                            
+            </div>
+        
+        </div>
+        
+    </nav>
 
-        {% block body %}{% endblock %}
-
+</header>
+        
 
         <hr>
 
+{% block body %}{% endblock %}
+
+        <!-- Footer -->
         <footer>
-        	<!-- recupere l'année courante -->
-            <p>  SIL - NTI copyright {{ "now"|date('Y') }} </p> 
+            <div class="row">
+                <div class="col-lg-12">
+        			<!-- recupere l'année courante -->
+                    <p>  SIL - NTI copyright {{ "now"|date('Y') }} </p> 
+                </div>
+            </div>
         </footer>
 
-
-        {% block javascripts %}
+    {% block javascripts %}
 			<script src="{{ asset('jquery-1.12.2.min.js') }}"></script>
 			<script src="{{ asset('bootstrap-3.3.6.min.js') }}"></script>
-			<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-		{% endblock %}
-    </div>
-    </body>
+			<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>  
+	{% endblock %}
+    
+
+</body>
+
 </html>

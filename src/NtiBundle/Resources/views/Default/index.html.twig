@@ -1,23 +1,79 @@
 {% extends "base.html.twig"  %}
 
 {% block body %}
-    <div id="actualite" >
-        <h2>Dernière nouvelle</h2>
-        <h3>{{ actu.titre }}</h3>
-        <div>le {{ actu.date|date('d/m/Y à H:i') }} par {{ actu.prenom }} {{ actu.nom }}</div>
-        {{ actu.contenu }}
-    </div>
-    <div id="presentation">
-    <h2>Presentation </h2>
-    <p>
-    La licence professionnelle SIL-NTI de l'AMU forme des professionnels en informatique de haut niveau autour de 3 domaines et de leurs interactions :
-<ul>
-<li>La programmation orientée objet avec Java</li>
-<li>Les systèmes d'information et les bases de données</li>
-<li>Les technologies de l'Internet (xhtml, xml, javascript, php et mysql)</li>
-</ul>
-Cette licence professionnelle vise les professions se situant dans les domaines du développement d'applications objets, de la conception/maintenance de bases de données et de site internet. Une orientation vers la maintenance système/réseau est éventuellement envisageable.
 
-La licence professionnelle recrute à partir du niveau BAC+2 (BTS, DUT, niveau L2 universitaire, ou tout diplôme français ou européen de niveau équivalent).
-    </p>
+
+<!-- les dernieres actu -->
+        <div id="actualite" class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Dernières actualités
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> {{ actu.titre }}</h4>
+                        <h5>le {{ actu.date|date('d/m/Y à H:i') }} par {{ actu.prenom }} {{ actu.nom }}</h5>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ actu.contenu }}</p>
+                        <a href="#" class="btn btn-primary">Plus d'actualités</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-gift"></i> Dates importantes</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <a href="#" class="btn btn-primary">Plus d'actualités</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+         <hr>
+
+
+	<!-- Presentation -->
+        <div id="presentation" class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">La Licence en quelques mots</h2>
+            </div>
+            <div class="col-md-6">
+                <p>La licence professionnelle SIL-NTI (Systemes Informatiques et Logiciels - Nouvelles Technologies de l'Informatique) de l'AMU forme des professionnels en informatique de haut niveau autour de 3 domaines et de leurs interactions :</p>
+                <ul>
+                    <li>La programmation orientée objet avec Java</li>
+                    <li>Les systèmes d'information et les bases de données</li>
+                    <li>Les technologies de l'Internet (xhtml, xml, javascript, php et mysql)</li>
+
+                </ul>
+                <p>Cette licence professionnelle vise les professions se situant dans les domaines du développement d'applications objets, de la conception/maintenance de bases de données et de site internet. Une orientation vers la maintenance système/réseau est éventuellement envisageable.
+				</p>
+            </div>
+
+            <div class="col-md-6">
+                <img class="img-responsive" src="{{ asset('computer.jpg') }}" alt="">
+
+            </div>
+        </div>
+ <hr>
+
+	<!-- candidature -->
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>La licence professionnelle recrute à partir du niveau BAC+2 (BTS, DUT, niveau L2 universitaire, ou tout diplôme français ou européen de niveau équivalent).</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-primary btn-block" href="#">Remplir un dossier de candidature</a>
+                </div>
+            </div>
+        </div>
+         <hr>
+
 {% endblock %}
