@@ -22,12 +22,12 @@
                 <td>{{ page.titre }}</td>
                 <td>{{ page.contenu|raw}}</td>
                 <td>
-                    <ul class="list-unstyled ">
+                    <ul class="list-unstyled">
                         <li>
                             <a href="{{ path('admin_page_show', { 'id': page.id }) }}" class="btn btn-link" role="button">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_page_edit', { 'id': page.id }) }}">Modifier</a>
+                            <a href="{{ path('admin_page_edit', { 'id': page.id }) }}" class="btn btn-link" role="button">Modifier</a>
                         </li>
                     </ul>
                 </td>
