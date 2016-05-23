@@ -13,11 +13,12 @@
     {% block stylesheets %}
 
 
-		<link rel="stylesheet" href="{{ asset('bootstrap-3.3.6.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('bootstrap-theme.min.css') }}">
-
 		<link rel="stylesheet" href="{{ asset('modern-business.css') }}">
     	<link href="{{ asset('font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{{ asset('bootstrap-3.3.6.min.css') }}">
+    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="{{ asset('style.base.css') }}">
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">-->
 
     {% endblock %}
@@ -31,18 +32,20 @@
 </head>
 
 <body class="container">
+
 <header>
+	
 	<div class="container jumbotron">
-	<a href="{{ path('index') }}">
-		<img src="{{ asset('logoNTI.png') }}" alt="logo_licence" class="col-md-3"/>     
-		
-	</a>
+		<a href="{{ path('index') }}">
+			<img src="{{ asset('logoNTI.png') }}" alt="logo_licence" class="col-md-3"/>
+		</a>
 		<h2 class="col-md-6">Licence Professionnelle SIL-NTI</h2>
 		
 		<img src="{{ asset('logoAMU.png') }}" alt="logo_licence" class="col-md-3"/>         
     </div>
+
     <!-- Menu de navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu">
         <div class="container-fluid">
           
             <div class="navbar-header">
@@ -62,9 +65,9 @@
 							{% endif %}
 							
 						
-							<li><a href="{{ path('fos_user_security_logout') }}" ><span class="glyphicon glyphicon-log-out"></span>Déconnexion</a></li>
+							<li><a href="{{ path('fos_user_security_logout') }}" ><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
 						{% else %}
-							<li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>Connexion</a></li>
+							<li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
 						{% endif %}
 				</ul>
                     

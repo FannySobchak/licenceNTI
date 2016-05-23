@@ -3,14 +3,18 @@
 {% block body %}
     <h1>Modifier la page : {{ page.titre }}</h1>
 <div class="container">
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Modifier" class="btn btn-primary" />
-    {{ form_end(edit_form) }}
+
+	<div class="form-group">
+	    {{ form_start(edit_form) }}
+	        {{ form_widget(edit_form) }}
+	        <input type="submit" value="Modifier" class="btn btn-primary" />
+	    {{ form_end(edit_form) }}
+		
+	</div>
 
     <ul class="list-unstyled btn-group">
         <li>
-            <a href="{{ path('admin_page_index') }}" class="btn btn-info">Retour à la liste</a>
+            <a href="{{ path('admin_page_index') }}" class="btn btn-info" role="button">Retour à la liste</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
@@ -18,5 +22,7 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+
 </div>
+
 {% endblock %}
