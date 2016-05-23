@@ -146,4 +146,8 @@ class Epreuve
     {
         return $this->cours;
     }
+    public function __toString()
+    {
+        return $this->getIntitule();
+    }
 }
