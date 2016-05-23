@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="image/x-icon" href="iconeNTI.ico" rel="shortcut icon" />
 
-
-	<title>{% block title %}SIL-NTI{% endblock %}</title>
+	{% block title %}<title>SIL-NTI</title>{% endblock %}
     
     {% block stylesheets %}
 
@@ -61,13 +61,24 @@
 						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							<li><a href="#" >{{ app.user.prenom }} {{ app.user.nom }}</a></li>
 							{% if is_granted("ROLE_ADMIN") %}
-								<li><a href="{{ path('admin_index') }}" >Administration</a></li>
+
+								<li class="dropdown"><a href="{{ path('admin_index') }}" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li><a href="{{ path('admin_index') }}">Menu Administration</a></li>
+										<li><a href="#">Profil</a></li>
+										<li><a href="#">Gestion des fichiers</a></li>
+										<li><a href="{{ path('admin_page_index') }}">Gestion des pages</a></li>
+										<li><a href="#">Notes étudiants</a></li>
+									</ul>
+
+								</li>
+
 							{% endif %}
 							
-						
 							<li><a href="{{ path('fos_user_security_logout') }}" ><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
 						{% else %}
-							<li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion</a></li>
+							<li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span> Connexion </a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-user"></span> INSCRIPTION </a></li>
 						{% endif %}
 				</ul>
                     
@@ -98,7 +109,10 @@
     {% block javascripts %}
 			<script src="{{ asset('jquery-1.12.2.min.js') }}"></script>
 			<script src="{{ asset('bootstrap-3.3.6.min.js') }}"></script>
-			<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>  
+			<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+			<script src="{{ asset('dropdown.js') }}"></script>  
+			  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 	{% endblock %}
     
 
