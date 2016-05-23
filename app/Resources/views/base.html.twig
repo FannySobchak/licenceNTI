@@ -14,6 +14,8 @@
 
 
 		<link rel="stylesheet" href="{{ asset('bootstrap-3.3.6.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('bootstrap-theme.min.css') }}">
+
 		<link rel="stylesheet" href="{{ asset('modern-business.css') }}">
     	<link href="{{ asset('font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">-->
@@ -58,9 +60,11 @@
 							{% if is_granted("ROLE_ADMIN") %}
 								<li><a href="{{ path('admin_index') }}" >Administration</a></li>
 							{% endif %}
-							<li><a href="{{ path('fos_user_security_logout') }}" >Déconnexion</a></li>
+							
+						
+							<li><a href="{{ path('fos_user_security_logout') }}" ><span class="glyphicon glyphicon-log-out"></span>Déconnexion</a></li>
 						{% else %}
-							<li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+							<li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-log-in"></span>Connexion</a></li>
 						{% endif %}
 				</ul>
                     
