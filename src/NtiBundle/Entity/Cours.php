@@ -111,4 +111,10 @@ class Cours
     {
         return $this->fichier;
     }
+
+
+    public function __toString()
+    {
+        return $this->getLibelle();
+    }
 }
