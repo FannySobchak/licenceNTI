@@ -35,13 +35,6 @@ class Fichier
     }
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="chemin", type="string", length=255)
-     */
-    private $chemin;
-
-    /**
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -61,30 +54,6 @@ class Fichier
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set chemin
-     *
-     * @param string $chemin
-     *
-     * @return Fichier
-     */
-    public function setChemin($chemin)
-    {
-        $this->chemin = $chemin;
-
-        return $this;
-    }
-
-    /**
-     * Get chemin
-     *
-     * @return string
-     */
-    public function getChemin()
-    {
-        return $this->chemin;
     }
 
     /**
