@@ -17,7 +17,6 @@
 		<link rel="stylesheet" href="{{ asset('modern-business.css') }}">
     	<link href="{{ asset('font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="{{ asset('bootstrap-3.3.6.min.css') }}">
-    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="{{ asset('style.base.css') }}">
 		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.css">-->
 
@@ -66,7 +65,7 @@
 									<ul class="dropdown-menu">
 										<li><a href="{{ path('admin_index') }}">Menu Administration</a></li>
 										<li><a href="#">Profil</a></li>
-										<li><a href="#">Gestion des fichiers</a></li>
+										<li><a href="{{ path('fichier_index') }}">Gestion des fichiers</a></li>
 										<li><a href="{{ path('admin_page_index') }}">Gestion des pages</a></li>
 										<li><a href="#">Notes étudiants</a></li>
 									</ul>
@@ -111,7 +110,7 @@
 			<script src="{{ asset('bootstrap-3.3.6.min.js') }}"></script>
 			<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 			<script src="{{ asset('dropdown.js') }}"></script>  
-			  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	{% endblock %}
     
