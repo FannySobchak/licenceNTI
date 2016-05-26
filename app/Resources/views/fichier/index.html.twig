@@ -7,7 +7,6 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Chemin</th>
                 <th>Path</th>
                 <th>Actions</th>
             </tr>
@@ -16,8 +15,7 @@
         {% for fichier in fichiers %}
             <tr>
                 <td><a href="{{ path('fichier_show', { 'id': fichier.id }) }}">{{ fichier.id }}</a></td>
-                <td>{{ fichier.chemin }}</td>
-                <td>{{ fichier.path }}</td>
+                <td><a href="{{ asset('uploads/files/' ~ fichier.path) }}" >{{ fichier.path }}</a></td>
                 <td>
                     <ul>
                         <li>
