@@ -12,7 +12,7 @@ use NtiBundle\Form\FichierType;
 /**
  * Fichier controller.
  *
- * @Route("/fichier")
+ * @Route("/admin/fichier")
  */
 class FichierController extends Controller
 {
@@ -48,7 +48,7 @@ class FichierController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             //modif pour upload
-            $entity->upload();
+            $fichier->upload();
             $em->persist($fichier);
             $em->flush();
 
