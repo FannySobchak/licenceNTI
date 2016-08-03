@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use NtiBundle\Entity\Note;
+use NtiBundle\Entity\Etudiant;
 use NtiBundle\Form\NoteType;
 
 /**
@@ -43,13 +44,14 @@ class NoteController extends Controller
     {
         $note = new Note();
         $form = $this->createForm('NtiBundle\Form\NoteType', $note);
+        
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            //$em->create();
             $em->persist($note);
             $em->flush();
-
             return $this->redirectToRoute('note_show', array('id' => $note->getId()));
         }
 

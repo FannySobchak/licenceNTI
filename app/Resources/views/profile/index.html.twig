@@ -1,28 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Note list</h1>
+    <h1>Profile list</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Valeur</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for note in notes %}
+        {% for profile in profiles %}
             <tr>
-                <td><a href="{{ path('note_show', { 'id': note.id }) }}">{{ note.id }}</a></td>
-                <td>{{ note.valeur }}</td>
+                <td><a href="{{ path('profile_show', { 'id': profile.id }) }}">{{ profile.id }}</a></td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('note_show', { 'id': note.id}) }}">show</a>
+                            <a href="{{ path('profile_show', { 'id': profile.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('note_edit', { 'id': note.id }) }}">edit</a>
+                            <a href="{{ path('profile_edit', { 'id': profile.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -33,7 +31,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('note_new') }}">Create a new entry</a>
+            <a href="{{ path('profile_new') }}">Create a new entry</a>
         </li>
     </ul>
 {% endblock %}

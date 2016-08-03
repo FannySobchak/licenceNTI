@@ -33,10 +33,13 @@ class User extends BaseUser
      */
     private $prenom;
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
+    public function  _construct(){
+
+        parent:: _construct();
+        
+        $this->roles=  array('ROLE_MACHIN');
+
+      }
 
     /**
      * Set actualite
@@ -191,4 +194,6 @@ class User extends BaseUser
     {
         return $this->prenom;
     }
+    
+
 }

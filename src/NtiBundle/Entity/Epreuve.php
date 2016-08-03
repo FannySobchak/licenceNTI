@@ -148,6 +148,6 @@ class Epreuve
     }
     public function __toString()
     {
-        return $this->getIntitule();
+        return $this->getIntitule()." ".$this->getCours()->getLibelle();
     }
 }

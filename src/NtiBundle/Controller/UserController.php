@@ -57,6 +57,8 @@ class UserController extends Controller
             $email = str_replace(' ', '', $email);
             $user->setEmail($email);
 
+            $r=['ROLE_ADMIN'];
+            $user->setRoles($r);
             //TODO: Envoyer un mail
             $user->setEnabled(true);
 

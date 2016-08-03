@@ -7,16 +7,24 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Etudiant
  *
+ * @ORM\Table(name="etudiant")
  * @ORM\Entity(repositoryClass="NtiBundle\Repository\EtudiantRepository")
  */
 class Etudiant extends User
 {
-    /**
+     
+      /**
      * @ORM\ManyToOne(targetEntity="Session")
      * @ORM\JoinColumn(nullable=false)
      */
     private $session;
-
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
     /**
      * Set session
      *
@@ -27,10 +35,8 @@ class Etudiant extends User
     public function setSession(\NtiBundle\Entity\Session $session)
     {
         $this->session = $session;
-
         return $this;
     }
-
     /**
      * Get session
      *
@@ -40,4 +46,20 @@ class Etudiant extends User
     {
         return $this->session;
     }
+
+    /** Get id
+     *
+     * @return \NtiBundle\Entity\Etudiant
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+  
+    
+    public function __toString()
+    {
+        return $this->getId()."".$this->getSession()->getLibelle();
+    }
 }
+

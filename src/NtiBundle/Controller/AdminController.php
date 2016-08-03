@@ -21,4 +21,4 @@ class AdminController extends Controller
     {
         return $this->render('NtiBundle:Admin:index.html.twig');
 	}
-}
+	 }

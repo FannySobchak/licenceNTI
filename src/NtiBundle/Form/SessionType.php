@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class NoteType extends AbstractType
+class SessionType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,8 @@ class NoteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('valeur')
-            ->add('epreuve')
-            ->add('session')
-            ->add('etudiant')
-            
+            ->add('libelle')
+            ->add('date', 'date')
         ;
     }
     
@@ -29,7 +26,7 @@ class NoteType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NtiBundle\Entity\Note'
+            'data_class' => 'NtiBundle\Entity\Session'
         ));
     }
 }
